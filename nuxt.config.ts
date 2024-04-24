@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: 'CF AI Web',
+            title: '小助手',
             meta: [
                 {
                     name: 'keywords',
