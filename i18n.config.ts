@@ -18,7 +18,7 @@ export default defineI18nConfig(() => ({
             send: '发送',
             img_gen_steps: '图片生成步数',
             text_generation: '文本生成',
-            image_generation: '图像生成',
+            image_generation: '图像生成(输入英文描述词)',
         },
         en: {
             setting: 'Setting',
