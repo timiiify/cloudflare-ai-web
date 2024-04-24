@@ -20,4 +20,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: timiiify/cloudflare-ai-web:latest
+          tags: supray/cloudflare-ai-web:latest
