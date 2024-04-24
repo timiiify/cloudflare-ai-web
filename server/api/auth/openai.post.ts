@@ -9,20 +9,34 @@ export default defineEventHandler(async (event) => {
         stream: true,
         model,
         messages,
+    }    
+    if (openAIBody.model==='gpt-3.5-turbo') {
+        const res = await fetch(`${process.env.OPENAI_PROXY}/${endpoint}`, {
+            method: 'POST',
+            headers: {
+                Authorization: key === undefined ? `Bearer ${process.env.OPENAI_API_KEY}` : `Bearer ${key}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(openAIBody),
+        })
+    
+        if (!res.ok) {
+            return handleErr(res)
+        }
+        return streamResponse(res, openaiParser)
+    }else{
+        const res = await fetch(`${process.env.OPENAI4_PROXY}/${endpoint}`, {
+            method: 'POST',
+            headers: {
+                Authorization: key === undefined ? `Bearer ${process.env.OPENAI4_API_KEY}` : `Bearer ${key}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(openAIBody),
+        })        
+        if (!res.ok) {
+            return handleErr(res)
+        }
+        return streamResponse(res, openaiParser)
     }
 
-    const res = await fetch(`${process.env.CF_GATEWAY}/openai/${endpoint}`, {
-        method: 'POST',
-        headers: {
-            Authorization: key === undefined ? `Bearer ${process.env.OPENAI_API_KEY}` : `Bearer ${key}`,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(openAIBody),
-    })
-
-    if (!res.ok) {
-        return handleErr(res)
-    }
-
-    return streamResponse(res, openaiParser)
 })

@@ -62,7 +62,13 @@ export const textGenModels: Model[] = [{
     id: 'gpt-3.5-turbo',
     name: 'ChatGPT-3.5-turbo',
     provider: 'openai',
-    endpoint: 'chat/completions',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'gpt-4-turbo',
+    name: 'ChatGPT-4-turbo',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
     type: 'chat'
 }, {
     id: '@cf/qwen/qwen1.5-14b-chat-awq',
