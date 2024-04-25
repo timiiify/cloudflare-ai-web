@@ -71,6 +71,12 @@ export const textGenModels: Model[] = [{
     endpoint: 'v1/chat/completions',
     type: 'chat'
 }, {
+    id: 'gpt-4',
+    name: 'GPT4-bing',
+    provider: 'openai',
+    endpoint: 'api/v1/chat/completions',
+    type: 'chat'
+}, {
     id: '@cf/qwen/qwen1.5-14b-chat-awq',
     name: 'qwen1.5-14b-chat-awq',
     provider: 'workers-ai',
