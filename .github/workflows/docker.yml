@@ -21,3 +21,10 @@ jobs:
         with:
           push: true
           tags: supray/cloudflare-ai-web:latest
+          
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl "$deploy_url"
