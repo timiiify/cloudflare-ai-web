@@ -25,6 +25,30 @@ export default defineEventHandler(async (event) => {
         postUrl=`${process.env.BING_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.BING_API_KEY}`
             break;
+        case 'spark':
+        postUrl=`${process.env.XUNFEI_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.XUNFEI_KEY}`
+            break;
+        case 'detail':
+        postUrl=`${process.env.MITA_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.MITA_KEY}`
+            break; 
+        case 'glm4':
+        postUrl=`${process.env.ZHIPU_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.ZHIPU_KEY}`
+            break;
+        case 'qwen':
+        postUrl=`${process.env.QIANWEN_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.QIANWEN_KEY}`
+            break;
+        case 'step':
+        postUrl=`${process.env.YUEWEN_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.YUEWEN_KEY}`
+            break;
+        case 'kimi':
+        postUrl=`${process.env.KIMI_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.KIMI_KEY}`
+            break;
     }    
     const res = await fetch(postUrl, {
         method: 'POST',

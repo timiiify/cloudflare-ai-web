@@ -77,6 +77,42 @@ export const textGenModels: Model[] = [{
     endpoint: 'api/v1/chat/completions',
     type: 'chat'
 }, {
+    id: 'spark',
+    name: '讯飞星火大模型',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'detail',
+    name: '秘塔AI',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'glm4',
+    name: '智谱清言',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'qwen',
+    name: '阿里通义千问',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'step',
+    name: '跃问',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
+    id: 'kimi',
+    name: '月之暗面kimi',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+}, {
     id: '@cf/qwen/qwen1.5-14b-chat-awq',
     name: 'qwen1.5-14b-chat-awq',
     provider: 'workers-ai',
