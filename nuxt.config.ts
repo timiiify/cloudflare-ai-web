@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     routeRules: {
         '/': {
             prerender: true,
-        }
+        },
+        '/chat': { redirect: '/' }, 
     },
     app: {
         head: {
