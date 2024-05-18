@@ -64,13 +64,15 @@ export const textGenModels: Model[] = [{
     provider: 'openai',
     endpoint: 'v1/chat/completions',
     type: 'chat'
-}, {
-    id: 'gpt-4-turbo',
-    name: 'ChatGPT-4-turbo(维护中)',
-    provider: 'openai',
-    endpoint: 'v1/chat/completions',
-    type: 'chat'
-}, {
+}, 
+// {
+//     id: 'gpt-4-vision-preview',
+//     name: 'ChatGPT-4-turbo(维护中)',
+//     provider: 'openai',
+//     endpoint: 'v1/chat/completions',
+//     type: 'chat'
+// },
+{
     id: 'gpt-4',
     name: 'GPT4-bing',
     provider: 'openai',
