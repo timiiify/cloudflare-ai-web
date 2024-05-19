@@ -65,13 +65,13 @@ export const textGenModels: Model[] = [{
     endpoint: 'v1/chat/completions',
     type: 'chat'
 }, 
-// {
-//     id: 'gpt-4-vision-preview',
-//     name: 'ChatGPT-4-turbo(维护中)',
-//     provider: 'openai',
-//     endpoint: 'v1/chat/completions',
-//     type: 'chat'
-// },
+{
+    id: 'gpt-4-0125-preview',
+    name: 'ChatGPT-4',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+},
 {
     id: 'gpt-4',
     name: 'GPT4-bing',
