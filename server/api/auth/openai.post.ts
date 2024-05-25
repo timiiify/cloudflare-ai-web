@@ -21,6 +21,10 @@ export default defineEventHandler(async (event) => {
         postUrl=`${process.env.OPENAI4_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.OPENAI4_API_KEY}`
             break;
+        case 'gpt-4o':
+        postUrl=`${process.env.OPENAI4o_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.OPENAI4o_API_KEY}`
+            break;
         case 'gpt-4':
         postUrl=`${process.env.BING_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.BING_API_KEY}`
