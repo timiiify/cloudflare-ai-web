@@ -67,8 +67,8 @@ export const textGenModels: Model[] = [{
     type: 'chat'
 }, 
 {
-    id: 'gpt-4-0125-preview',
-    name: 'ChatGPT-4',
+    id: 'gpt-4-1106-preview',
+    name: 'ChatGPT-4(维护中)',
     provider: 'openai',
     endpoint: 'v1/chat/completions',
     type: 'chat'
