@@ -29,7 +29,6 @@ const groups = computed(() => [{
 
 function onSelect(option: { id: string }) {
   selectedModel.value = models.find(i => i.id === option.id) || textGenModels[0]
-  openModelSelect.value = !openModelSelect.value
 }
 </script>
 
