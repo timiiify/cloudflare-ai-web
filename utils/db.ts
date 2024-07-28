@@ -104,7 +104,7 @@ export const textGenModels: Model[] = [{
     type: 'chat'
 },
 {
-    id: 'gpt4o-mini',
+    id: 'gpt-4o-mini',
     name: 'GPT-4o-mini',
     provider: 'openai',
     endpoint: 'v1/chat/completions',
