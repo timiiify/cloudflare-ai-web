@@ -10,7 +10,17 @@ export class Database extends Dexie {
             history: '++id, session, type, role, content, src',
             tab: '++id, label'
         })
-        // this.version(5).upgrade()
+        this.version(5).stores({
+            tab: '++id, label, created_at',
+            history: '++id, session, type, role, content, src, created_at',
+        }).upgrade(trans => {
+            return trans.table('history').toCollection().modify(async i => {
+                if (i.type === 'image') {
+                    i.content = ''
+                    i.src = [i.src]
+                }
+            })
+        })
     }
 
     getLatestTab() {
@@ -24,16 +34,19 @@ export class Database extends Dexie {
     async getHistory(session: number) {
         const arr = await DB.history.where('session').equals(session).limit(100).toArray()
         arr.forEach(i => {
-            if (i.type === 'image' && i.src instanceof Blob) {
-                URL.revokeObjectURL(i.content)
-                i.content = URL.createObjectURL(i.src)
+            if (i.type === 'image') {
+                i.src_url = []
+                i.src?.forEach(src => {
+                    i.src_url!.push(URL.createObjectURL(src))
+                })
+                i.content = 'image'
             }
         })
         return arr
     }
 
     addTab(label: string) {
-        return DB.tab.add({label})
+        return DB.tab.add({label, created_at: Date.now()})
     }
 
     deleteTabAndHistory(id: number) {
@@ -54,12 +67,22 @@ export const initialSettings = {
 
 export type Settings = typeof initialSettings
 
+export const uniModals: Model[] = [
+    {
+        id: 'gemini-1.5-flash',
+        name: 'Gemini 1.5 flash',
+        provider: 'google',
+        type: 'universal'
+    },
+    {
+        id: 'gemini-1.5-pro',
+        name: 'Gemini 1.5 Pro',
+        provider: 'google',
+        type: 'universal'
+    }
+]
+
 export const textGenModels: Model[] = [{
-    id: 'gemini-pro',
-    name: 'Gemini Pro',
-    provider: 'google',
-    type: 'chat'
-}, {
     id: 'gpt-3.5-turbo',
     name: 'GPT-3.5-turbo',
     provider: 'openai',
@@ -76,6 +99,13 @@ export const textGenModels: Model[] = [{
 {
     id: 'gpt-4o',
     name: 'GPT-4o',
+    provider: 'openai',
+    endpoint: 'v1/chat/completions',
+    type: 'chat'
+},
+{
+    id: 'gpt4o-mini',
+    name: 'GPT-4o-mini',
     provider: 'openai',
     endpoint: 'v1/chat/completions',
     type: 'chat'
@@ -176,4 +206,4 @@ export const imageGenModels: Model[] = [{
     type: 'text-to-image'
 }]
 
-export const models: Model[] = [...textGenModels, ...imageGenModels]
+export const models: Model[] = [...uniModals, ...textGenModels, ...imageGenModels]

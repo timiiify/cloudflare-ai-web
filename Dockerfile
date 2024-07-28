@@ -6,11 +6,11 @@ EXPOSE 3000
 
 RUN npm i -g pnpm
 
-COPY package.json pnpm-lock.yaml ./
+ADD package.json pnpm-lock.yaml ./
 
-COPY patches ./patches
+ADD patches ./patches
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 COPY . .
 
