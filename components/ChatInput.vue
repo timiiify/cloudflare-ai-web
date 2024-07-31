@@ -11,7 +11,7 @@ const fileList = ref<{
 }[]>([])
 
 onMounted(() => {
-  toast.add({ title: "如需联系上文请开启左下角携带历史记录，图像生成请输入英文描述词" })
+  toast.add({ title: "如需联系上文请开启左下角携带历史记录，图像生成请输入英文描述词     已修复部分国产模型，半个月后可能会移除无法使用的国产模型，如有需要自行前往官网使用，下次预计更新：可能增加claude3.5模型(风控严重)" })
   addHistory.value = localStorage.getItem('addHistory') === 'true'
 })
 watch(addHistory, () => {
