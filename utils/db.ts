@@ -82,13 +82,7 @@ export const uniModals: Model[] = [
     }
 ]
 
-export const textGenModels: Model[] = [{
-    id: 'gpt-3.5-turbo',
-    name: 'GPT-3.5-turbo',
-    provider: 'openai',
-    endpoint: 'v1/chat/completions',
-    type: 'chat'
-}, 
+export const textGenModels: Model[] = [
 {
     id: 'gpt-4-turbo',
     name: 'GPT-4-turbo',
@@ -119,24 +113,6 @@ export const textGenModels: Model[] = [{
 }, {
     id: 'spark',
     name: '讯飞星火大模型',
-    provider: 'openai',
-    endpoint: 'v1/chat/completions',
-    type: 'chat'
-}, {
-    id: 'detail',
-    name: '秘塔AI',
-    provider: 'openai',
-    endpoint: 'v1/chat/completions',
-    type: 'chat'
-}, {
-    id: 'glm4',
-    name: '智谱清言',
-    provider: 'openai',
-    endpoint: 'v1/chat/completions',
-    type: 'chat'
-}, {
-    id: 'qwen',
-    name: '阿里通义千问',
     provider: 'openai',
     endpoint: 'v1/chat/completions',
     type: 'chat'

@@ -13,10 +13,6 @@ export default defineEventHandler(async (event) => {
     let postUrl=''
     let authKey=''
     switch (openAIBody.model) {
-        case 'gpt-3.5-turbo':
-        postUrl=`${process.env.OPENAI_PROXY}/${endpoint}`
-        authKey=`Bearer ${process.env.OPENAI_API_KEY}`
-            break;
         case 'gpt-4-turbo':
         postUrl=`${process.env.OPENAI4_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.OPENAI4_API_KEY}`
@@ -36,18 +32,6 @@ export default defineEventHandler(async (event) => {
         case 'spark':
         postUrl=`${process.env.XUNFEI_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.XUNFEI_KEY}`
-            break;
-        case 'detail':
-        postUrl=`${process.env.MITA_PROXY}/${endpoint}`
-        authKey=`Bearer ${process.env.MITA_KEY}`
-            break; 
-        case 'glm4':
-        postUrl=`${process.env.ZHIPU_PROXY}/${endpoint}`
-        authKey=`Bearer ${process.env.ZHIPU_KEY}`
-            break;
-        case 'qwen':
-        postUrl=`${process.env.QIANWEN_PROXY}/${endpoint}`
-        authKey=`Bearer ${process.env.QIANWEN_KEY}`
             break;
         case 'step':
         postUrl=`${process.env.YUEWEN_PROXY}/${endpoint}`
