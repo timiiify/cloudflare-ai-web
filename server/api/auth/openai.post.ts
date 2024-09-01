@@ -13,6 +13,10 @@ export default defineEventHandler(async (event) => {
     let postUrl=''
     let authKey=''
     switch (openAIBody.model) {
+        case 'claude-3-5-sonnet-20240620':
+        postUrl=`${process.env.cloud35_PROXY}/${endpoint}`
+        authKey=`Bearer ${process.env.claude35_API_KEY}`
+            break;
         case 'gpt-4-turbo':
         postUrl=`${process.env.OPENAI4_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.OPENAI4_API_KEY}`
