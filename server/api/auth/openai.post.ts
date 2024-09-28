@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
         postUrl=`${process.env.cloud35_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.claude35_API_KEY}`
             break;
-        case 'gpt-4-turbo':
+        case 'gpt-4-turbo-2024-04-09':
         postUrl=`${process.env.OPENAI4_PROXY}/${endpoint}`
         authKey=`Bearer ${process.env.OPENAI4_API_KEY}`
             break;
