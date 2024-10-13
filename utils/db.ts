@@ -115,7 +115,7 @@ export const textGenModels: Model[] = [
     id: 'gpt-4',
     name: 'GPT4-bing',
     provider: 'openai',
-    endpoint: 'api/v1/chat/completions',
+    endpoint: 'v1/chat/completions',
     type: 'chat'
 }, {
     id: 'spark',
