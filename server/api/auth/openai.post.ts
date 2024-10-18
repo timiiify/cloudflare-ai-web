@@ -17,7 +17,6 @@ export default defineEventHandler(async (event) => {
         case 'gpt-4-turbo':
         case 'gpt-4o':
         case 'gpt-4o-mini':
-        case 'gpt-4':
         case 'spark':
         case 'step-1v-32k':
         case 'kimi':
